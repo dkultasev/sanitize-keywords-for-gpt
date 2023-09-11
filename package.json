@@ -1,0 +1,80 @@
+{
+  "name": "sanitize-keywords",
+  "displayName": "Sanitize keywords",
+  "description": "Sanitize sensitive information before sending code to GPT prompt",
+  "publisher": "dkultasev",
+  "icon": "images/icon.png",
+  "author": {
+    "name": "Dmitrij Kultasev",
+    "email": "dkultasev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkultasev/sanitize-keywords-for-gpt"},
+  "version": "0.0.10",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+          "command": "sanitize-keywords.replaceAndCopy",
+          "title": "Sanitize keywords"
+      },
+      {
+          "command": "sanitize-keywords.restoreFromClipboard",
+          "title": "Un-sanitize keywords"
+      },
+      {
+        "command": "sanitize-keywords.copyUnsanitized",
+        "title": "Copy Unsanitized Version"
+    }
+  ]
+,  
+    "configuration": {
+      "title": "Sanitize keywords",
+      "properties": {
+          "sanitize-keywords.replacements": {
+              "type": "object",
+              "default": {},
+              "description": "Define your replacement words."
+          },
+          "sanitize-keywords.showSanitizeNotification": {
+            "type": "boolean",
+            "default": false,
+            "description": "Show notification when content is sanitized and copied to clipboard."
+        },
+        "sanitize-keywords.showUnsanitizeNotification": {
+            "type": "boolean",
+            "default": false,
+            "description": "Show notification when content is unsanitized."
+        }
+      }
+  }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
