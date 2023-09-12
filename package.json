@@ -1,7 +1,7 @@
 {
   "name": "sanitize-keywords",
-  "displayName": "Sanitize keywords",
-  "description": "Sanitize sensitive information before sending code to GPT prompt",
+  "displayName": "Safe COPY/PASTE",
+  "description": "Avoid copying sensitive data to clipboard. Sanitize keywords before copying to clipboard. Useful for Chat-GPT, Stackoverflow, etc.",
   "publisher": "dkultasev",
   "icon": "images/icon.png",
   "author": {
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dkultasev/sanitize-keywords-for-gpt"},
-  "version": "0.0.10",
+  "version": "0.0.11",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -24,20 +24,20 @@
     "commands": [
       {
           "command": "sanitize-keywords.replaceAndCopy",
-          "title": "Sanitize keywords"
+          "title": "Safe Copy"
       },
       {
           "command": "sanitize-keywords.restoreFromClipboard",
-          "title": "Un-sanitize keywords"
+          "title": "Safe Paste"
       },
       {
         "command": "sanitize-keywords.copyUnsanitized",
-        "title": "Copy Unsanitized Version"
+        "title": "Safe Copy (unsanitized)"
     }
   ]
 ,  
     "configuration": {
-      "title": "Sanitize keywords",
+      "title": "Safe COPY/PASTE",
       "properties": {
           "sanitize-keywords.replacements": {
               "type": "object",

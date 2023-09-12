@@ -1,11 +1,12 @@
-# Sanitize Keywords extension
+# Safe COPY/PASTE Extension
 
 ## Overview
-This Visual Studio Code extension allows users to sanitize sensitive information from their code or text quickly. By replacing pre-defined keywords with their specified replacements, you can ensure that confidential information is not inadvertently shared when pasting content elsewhere.
+This Visual Studio Code extension helps users to safely copy and paste their code or text without sharing sensitive information inadvertently. It sanitizes predefined keywords with specified replacements before the content is copied to the clipboard, making it a useful tool for platforms like Chat-GPT, Stackoverflow, etc.
 
 ## Features
-- **Replace and Copy to Clipboard**: Quickly replace sensitive keywords and copy the sanitized text to the clipboard.
-- **Undo Replacement from Clipboard**: Revert the replaced text in the clipboard back to its original form.
+- **Safe Copy**: Quickly replace sensitive keywords with pre-defined replacements and copy the sanitized text to the clipboard.
+- **Safe Paste**: Retrieve the original content from the clipboard by reverting the replaced words back to their initial form.
+- **Safe Copy (unsanitized)**: Allows copying the text without sanitizing, maintaining the original content intact.
 
 ## Configuration
 Define your replacement words in your VS Code `settings.json`:
@@ -19,11 +20,12 @@ Define your replacement words in your VS Code `settings.json`:
     "antonio.banderas@sercretmail.com": "user1@email.com"
 }
 ```
+Additionally, configure the extension settings to control notifications displayed during the sanitize and unsanitize processes.
 
 ## Usage
 1. Highlight the text you wish to sanitize in your editor. If nothing is selected, the entire content will be used.
-2. Use the "Sanitize keywords" command to replace and copy the sanitized text.
-3. To undo a previous replacement, use the "Undo Sanitize" command.
+2. Utilize the "Safe Copy" command to replace sensitive words and copy the sanitized text to the clipboard.
+3. If you want to retrieve the original text, use the "Safe Paste" command.
 
 For example you have following code snippet:
 
@@ -45,7 +47,7 @@ Error: ....
 Error: email should be unique. User with email antonio.banderas@sercretmail.com already exists
 ```
 
-By highlighting the text and using the "Sanitize keywords" command, you will get the following text in your clipboard:
+Upon highlighting the text and employing the "Safe Copy" command, the sanitized version available in your clipboard will be:
 
 ```python
 function create_user(username, password, first_name, last_name, email, company):
@@ -64,3 +66,4 @@ Error: ....
     ...
 Error: email should be unique. User with email John.Smith@sercretmail.com already exists
 ```
+Feel safe and secure while sharing your code snippets with the "Safe COPY/PASTE" extension
